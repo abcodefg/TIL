@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 // 백준 #7568 덩치 풀이
-// '사람의 수'와 '각 사람의 키와 몸무게 값'을 입력받아 등수를 출력하는 문제
-// 다른 사람에 비해 키와 몸무게가 모두 크면 덩치가 큰 것이다.
-// 덩치가 클수록 등수가 높으며, 키나 몸무게 어느 하나만 크다면 등수는 같다.
+    /* '사람의 수'와 '각 사람의 키와 몸무게 값'을 입력받아 등수를 출력하는 문제
+     다른 사람에 비해 키와 몸무게가 모두 크면 덩치가 큰 것이다.
+     덩치가 클수록 등수가 높으며, 키나 몸무게 어느 하나만 크다면 등수는 같다.*/
 public class BF_7568 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
