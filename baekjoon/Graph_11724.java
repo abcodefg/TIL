@@ -5,7 +5,7 @@ import java.util.*;
 
 // #11724 연결 요소의 개수 풀이
 /*방향 없는 그래프가 주어졌을 때, 연결 요소(Connected components)의 개수를 구하는 문제*/
-public class DFS_BFS_11724 {
+public class Graph_11724 {
     // DFS 혹은 BFS를 통해 그 정점과 연결된 정점을 모두 순회하며 방문여부를 true로 바꾸어준다.
 
     static int[][] edges;
