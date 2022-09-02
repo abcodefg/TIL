@@ -37,7 +37,7 @@ public class Graph_2178 {
             }
         }
         bfs();
-        // #중요 -- (a)
+        // TODO 확인할 것 (1)
         System.out.println(arr[N - 1][M - 1]);
     }
 
@@ -61,7 +61,7 @@ public class Graph_2178 {
                     // 방문한 적 없으며, 값이 1이라면
                     if (!visited[nextX][nextY] && arr[nextX][nextY] == 1) {
                         // 카운트를 늘리고 그 지점에서 탐색을 이어간다.
-                        // #중요 -- (b)
+                        // TODO 확인할 것 (2)
                         arr[nextX][nextY] = arr[curX][curY] + 1;
                         que.add(new int[]{nextX, nextY});
                     }
