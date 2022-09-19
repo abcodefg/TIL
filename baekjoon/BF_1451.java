@@ -61,7 +61,7 @@ public class BF_1451 {
             }
         }
 
-        //세로로 한 개, 그 아래 혹은 위에 가로로 두 개 나누는 경우
+        //세로로 1개, 그 아래 혹은 위에 가로로 2개 나누는 경우
         for(int i = 0; i <= N - 2; i++) {
             long firstSquare = sum(0, 0, i, M - 1);
             long lastSquare = sum(N - 1 - i, 0, N - 1, M - 1);
@@ -80,7 +80,7 @@ public class BF_1451 {
             }
         }
 
-        //가로로 한 개, 그 왼쪽 혹은 오른쪽에 세로로 두 개 나누는 경우
+        //가로로 1개, 그 왼쪽 혹은 오른쪽에 세로로 2개 나누는 경우
         for(int i = 0; i <= M - 2; i++) {
             long firstSquare = sum(0, 0, N - 1, i);
             long lastSquare = sum(0, M - 1 - i, N - 1, M - 1);
