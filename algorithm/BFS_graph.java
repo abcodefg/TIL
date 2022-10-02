@@ -17,6 +17,8 @@ public class BFS_graph {
         Queue<int[]> que = new ArrayDeque<>();
         que.add(new int[]{src[0], src[1], sDir});
 
+
+
         int moves = 0;
         int[][] dirArr = new int[][]{{0, 0}, {-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
