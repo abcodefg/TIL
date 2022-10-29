@@ -24,6 +24,7 @@ public class HashMap_10816 {
                 map.put(str, 1);
             }
         }
+
         int M = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         StringBuilder sb = new StringBuilder();
