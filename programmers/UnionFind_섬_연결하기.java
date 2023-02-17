@@ -37,6 +37,8 @@ public class UnionFind_섬_연결하기 {
             int islandA = costs[i][0];
             int islandB = costs[i][1];
 
+            // TODO 확인할 것 (1) : parent[]가 아닌 find()여야 한다.
+            //  57번 줄의 코멘트를 참고할 것
             if (find(islandA) != find(islandB)) {
                 union(islandA, islandB);
                 answer += costs[i][2];
@@ -48,9 +50,16 @@ public class UnionFind_섬_연결하기 {
 
     // 두 섬을 연결한다 (= parent를 연결된 섬들 중 index가 가장 작은 것으로 통일시킨다.)
     private void union(int x, int y) {
+        // x와 y의 parent를 구한다.
         x = find(x);
         y = find(y);
 
+        // 두 parent 중 index가 작은 것을 큰 것의 parent로 만든다.
+        // 작은 parent의 자식 node들이 있는 경우에,
+        // 1-3 과 0-2 가 각각 연결되어 있다고 할 때
+        // union(2, 3)을 실행하면 find(2) = 0, find(3) = 1 이므로.
+        // parent[1] = 0이 되지만 parent[3]은 여전히 1이다.
+        // 따라서 어떤 노드 x의 부모 노드를 알고 싶다면 parent[x]보다는 find(x)를 사용하는 것이 적절하다.
         if (x < y)
             parent[y] = x;
         else
@@ -63,7 +72,7 @@ public class UnionFind_섬_연결하기 {
             return parent[x];
         }
         else {
-            // TODO 확인할 것 : 재귀 호출의 결과값을 할당하는 동시에 return하는 구조
+            // TODO 확인할 것 (2) : 재귀 호출의 결과값을 할당하는 동시에 return하는 구조
             return parent[x] = find(parent[x]);
         }
     }
