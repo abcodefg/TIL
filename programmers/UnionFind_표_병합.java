@@ -85,7 +85,7 @@ public class UnionFind_표_병합 {
                     value[numRoot] = null;
                 }
 
-                for (int i = 0; i < root.length; i++) {
+                for (int i = 1; i <= 2500; i++) {
                     int roots = find(i);
                     if (roots == numRoot)
                         root[i] = i;
