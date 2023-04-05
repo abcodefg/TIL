@@ -1,6 +1,7 @@
 package algorithm.leetcode.medium.Optimal_Partition_of_String;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Solution {
     /**
@@ -10,10 +11,13 @@ public class Solution {
      * 주어진 문자열의 각 자리를 순회하며 한 partition을 구성하는 문자들을 set에 담는다.
      * 어떤 문자가 이미 set에 담겨있다면 partition을 추가해야 하므로 ans를 1 증가시키고 set을 비운다.
      *
-     * 다른 자료구조를 활용한 두 가지 풀이를 아래에 기록한다.
+     * Time : O(n) (이 경우, HashSet.contains()의 time complexity는 O(1))
+     * Space : O(1) (Set의 크기가
+     * Runtime : 36 ms (51.93%)
+     * Memory : 43.6 MB (35.14%)
      */
     public int solutionUsingSet(String s) {
-        java.util.Set<Character> set = new HashSet<>();
+        Set<Character> set = new HashSet<>();
         int ans = 1;
         for (char c : s.toCharArray()) {
             if (set.contains(c)) {
@@ -32,8 +36,8 @@ public class Solution {
      * int 배열 lastPos에는 각 알파벳이 마지막으로 나타났던 partition의 순서를,
      * lastEnd에는 마지막 partition의 순서를 기록한다.
      *
-     * 시간 복잡도 : O(n)
-     * 공간 복잡도 : O(1) (배열의 길이가 알파벳 개수인 26이므로 상수)
+     * Time : O(n)
+     * Space : O(1) (배열의 길이가 알파벳 개수인 26이므로 상수)
      * Runtime : 9 ms (92.55%)
      * Memory : 42.6 MB (92.65%)
      */
@@ -61,6 +65,8 @@ public class Solution {
      * 기본적인 접근법은 위의 두 풀이와 동일하나 한 partition에 등장한 문자열을 기록하고 확인할 때 비트마스크를 활용한다.
      * 따라서 메모리 사용 측면에서 우수하다.
      *
+     * Time : O(n)
+     * Space : O(1)
      * Runtime : 14 ms (Beats 98.98%)
      * Memory : 10.2 MB (Beats 98.68%)
      */
