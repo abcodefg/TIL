@@ -74,11 +74,11 @@ public class DFS_양과_늑대 {
      *  00011(2) = 3으로 나타낼 수 있다.
      */
     private int n;
-    private int ans = 1;
     // TODO Check (3) : 이진 트리의 구조를 자식 노드의 배열로 기록
-    private int[] l, r, val;
+    private int[] l, r;
     private boolean[] visited;
     public int solution2(int[] info, int[][] edges) {
+        ans = 1;
         n = info.length;
         l = new int[n];
         r = new int[n];
