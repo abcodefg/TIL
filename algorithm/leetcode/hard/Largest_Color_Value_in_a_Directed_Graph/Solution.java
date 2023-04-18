@@ -8,40 +8,43 @@ public class Solution {
         System.out.println(largestPathValue(colors, edges));
     }
     private static List<Integer>[] adj;
-    private static boolean[] visited;
+    private static boolean[] visited, path;
     private static int[][] count;
-    private static Set<Integer> path = new HashSet<>();
     public static int largestPathValue(String colors, int[][] edges) {
         if (edges.length == 0) {
             return 1;
         }
-        adj = new ArrayList[colors.length()];
-        Arrays.fill(adj, new ArrayList<>());
+        int n = colors.length();
+
+        adj = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adj[i] = new ArrayList<>();
+        }
 
         for(int[] edge : edges) {
             adj[edge[0]].add(edge[1]);
         }
 
-        int res = 0, n = colors.length();
+        int res = 0;
+        path = new boolean[n];
         visited = new boolean[n];
         count = new int[n][26];
         for (int i = 0; i < n; i++) {
             res = Math.max(res, dfs(i, colors));
-            path.clear();
         }
 
-        return res = res == Integer.MAX_VALUE ? -1 : res;
+        return res == Integer.MAX_VALUE ? -1 : res;
     }
 
     private static int dfs(int i, String colors) {
-        if (path.contains(i)) {
+        if (path[i]) {
             return Integer.MAX_VALUE;
         }
         if (visited[i]) {
             return 0;
         }
 
-        path.add(i);
+        path[i] = true;
         visited[i] = true;
 
         int colorIdx = colors.charAt(i) - 'a';
@@ -58,6 +61,8 @@ public class Solution {
                 max = Math.max(max, count[i][color]);
             }
         }
+        path[i] = false;
+
         return max;
     }
 }
