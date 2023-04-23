@@ -3,7 +3,7 @@ package algorithm.leetcode.medium;
 public class Construct_Quad_Tree {
     /**
      * Time : O(n^2 * log n)
-     * Space : O(h) (h는 Tree의 높이 -> DFS)
+     * Space : O(4 * log2(n)) = O(2 * log2(n)) = O(log2(n^2)) = O(n^2)
      * Runtime : 0 ms (Beats 100%)
      * Memory : 42.6 MB (Beats 91%)
      */
