@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Solution {
     /**
+     * 문자열을 구성하는 각 알파벳의 개수를 key로 삼아 anagram끼리 묶어서 map에 저장한다.
+     *
      * Time : O(m * n) (m = strs.length, n = strs[i].length의 최대값)
      * Space : O(m * n)
      * Runtime : 22 ms (19.64%)
