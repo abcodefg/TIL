@@ -5,10 +5,14 @@ public class Solution {
     /**
      * [Top-Down DP 풀이]
      * dp(i)가 i번 문제부터 끝 문제까지에서 얻을 수 있는 점수의 최댓값이라고 하자.
-     * 만약, questions = [[3,2],[4,3],[4,4],[2,5]] 일 때,
+     * 예를 들어, questions = [[3,2],[4,3],[4,4],[2,5]] 인 경우
+     * 0번 문제를 푸는지 여부에 따라 경우의 수를 나누어 생각하면,
      * dp(0)은
-     *  0번 문제를 푼 경우 "3 + dp(0 + 2 + 1)"이고 (0 + 2 + 1은 다음 문제 2개를 skip한 이후의 인덱스)
-     *  0번 문제를 풀지 않은 경우 "dp(0 + 1)"이다.
+     *  0번 문제를 푼 경우의 최댓값인 "3 + dp(0 + 2 + 1)"과 (0 + 2 + 1은 다음 문제 2개를 skip한 이후의 인덱스)
+     *  0번 문제를 풀지 않은 경우의 최댓값 "dp(0 + 1)" 중 더 큰 값이다.
+     *
+     * 따라서, dp(i)은 MAX(i번 문제의 점수 + dp(i + i번 문제의 brainpower + 1), dp(i + 1))로 일반화할 수 있고
+     * 해당 규칙에 따라 재귀식을 구성하면 된다.
      *
      * 재귀의 base case는 i가 questions 인덱스의 범위를 벗어났을 때이며,
      * 이 때는 추가적으로 풀 수 있는 문제가 없으므로 점수 0을 반환한다.
@@ -57,8 +61,8 @@ public class Solution {
         long[] dp = new long[len + 1];
 
         for (int i = len - 1; i >= 0; i--) {
-            int prevIdx = Math.min(len, i + questions[i][1] + 1);
-            dp[i] = Math.max(questions[i][0] + dp[prevIdx], dp[i + 1]);
+            int prevIdx = Math.min(len, i + questions[i][1] + 1); // 해당 문제를 푼 경우 풀 수 있는 다음 문제의 인덱스
+            dp[i] = Math.max(questions[i][0] + dp[prevIdx], dp[i + 1]); // 문제를 푼 경우/풀지 않은 경우의 최댓값 중 더 큰 값
         }
 
         return dp[0];
