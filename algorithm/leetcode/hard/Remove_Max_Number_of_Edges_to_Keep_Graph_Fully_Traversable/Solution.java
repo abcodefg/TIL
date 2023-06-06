@@ -11,17 +11,17 @@ public class Solution {
      * 2) Union Find로 풀 수 있다는 점을 알아차리고
      * 3) Path compression, Union by rank 와 같은 Union Find 최적화 기법을 적용한 클래스를 구현하는 게 까다로운 문제였다.
      *
+     * Time : O(edges.length * α(n)) (α(n)에 대한 설명은 하단의 '참고' 참조)
+     * Space : O(n)
+     * Runtime : 11 ms (Beats 98.6%)
+     * Memory : 104.8 MB (Beats 29.93%)
+     *
      * [참고]
      * - Union Find 최적화
      * https://hazel-developer.tistory.com/272?category=816058
      *
      * - Ackermann 역함수 (= α(n))
      * https://www.geeksforgeeks.org/inverse-ackermann-function/
-     *
-     * Time : O(edges.length * α(n))
-     * Space : O(n)
-     * Runtime : 11 ms (Beats 98.6%)
-     * Memory : 104.8 MB (Beats 29.93%)
      */
 
     // Union Find 자료구조
